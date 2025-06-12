@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 const App = () => {
   const [guestList, setGuestList] = useState([]);
-  const [guestDetails, setGuestDetails] = useState([]); /* Do I need to create another useState to render the other detaiils? */
+  const [guestDetails, setGuestDetails] = useState({}); /* Do I need to create another useState to render the other detaiils? */
 
 
     useEffect(() => {
@@ -31,9 +31,9 @@ const App = () => {
 
     
 const getGuestDetails = (details) => {
-  
+  setGuestDetails(details);
 }
-  getGuestDetails();
+
 
 
   return (
@@ -46,7 +46,7 @@ const getGuestDetails = (details) => {
           <tbody>
          {guestList.map( (singleGuest) => {
 
-            return <tr key={singleGuest.id} onClick={() => { }}>
+            return <tr key={singleGuest.id} onClick={() => { getGuestDetails(singleGuest) }}>
                   <td>{singleGuest.name}</td><td>{singleGuest.email}</td><td>{singleGuest.phone}</td></tr>
 
 
@@ -55,7 +55,7 @@ const getGuestDetails = (details) => {
         </table>
 
         <section>
-          <h2>{}</h2> {/* Having trouble getting the other details to render in this section.  Need to create a table component */}
+          <h2>{guestDetails.name}</h2> {/* Having trouble getting the other details to render in this section.  Need to create a table component */}
         </section>
 
     
