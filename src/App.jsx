@@ -28,8 +28,12 @@ const App = () => {
     fetchGuests();
     }, []);
   
- 
+
+    
+const getGuestDetails = (details) => {
   
+}
+  getGuestDetails();
 
 
   return (
@@ -42,7 +46,7 @@ const App = () => {
           <tbody>
          {guestList.map( (singleGuest) => {
 
-            return <tr key={singleGuest.id} onClick={() => { fetchGuests(singleGuest.name) }}>
+            return <tr key={singleGuest.id} onClick={() => { }}>
                   <td>{singleGuest.name}</td><td>{singleGuest.email}</td><td>{singleGuest.phone}</td></tr>
 
 
@@ -51,7 +55,7 @@ const App = () => {
         </table>
 
         <section>
-          <h2>{}</h2> {/* Having trouble getting the other details to render in this section */}
+          <h2>{}</h2> {/* Having trouble getting the other details to render in this section.  Need to create a table component */}
         </section>
 
     
